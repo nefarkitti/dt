@@ -22,10 +22,13 @@ function root(dir = '/public/') {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
   }
 })
+const stylesWeb = StyleSheet.create({
+  container: {
+      flex: 1,
+  },
+});
 /*
 <WebView
       
@@ -42,8 +45,17 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>ok</Text>
       <StatusBar style="auto" />
+      <WebView
+      
+      source={{uri: "https://nefarkitti.github.io/dt/public/"}}
+      containerStyle={stylesWeb.container}
+      originWhitelist={['https://*']}
+      decelerationRate="fast"
+      cacheEnabled
+      contentMode="mobile"
+      />
+      
     </View>
   );
 }
